@@ -1,6 +1,6 @@
 ﻿namespace NameThatTune
 {
-    partial class frm1
+    partial class frmPlayerSetup
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // frm1
+            // frmPlayerSetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(144, 82);
-            this.Name = "frm1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(594, 327);
+            this.Name = "frmPlayerSetup";
+            this.Text = "Player Setup";
             this.ResumeLayout(false);
 
         }
@@ -44,4 +44,3 @@
         #endregion
     }
 }
-

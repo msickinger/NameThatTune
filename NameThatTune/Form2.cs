@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NameThatTune
 {
-    public partial class frm1 : Form
+    public partial class frmPlayerSetup : Form
     {
-        public frm1()
+        public frmPlayerSetup()
         {
             InitializeComponent();
         }
