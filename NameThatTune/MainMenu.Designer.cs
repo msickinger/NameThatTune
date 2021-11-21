@@ -65,6 +65,7 @@
             this.btnCloseGame.TabIndex = 2;
             this.btnCloseGame.Text = "Close Game";
             this.btnCloseGame.UseVisualStyleBackColor = false;
+            this.btnCloseGame.Click += new System.EventHandler(this.btnCloseGame_Click);
             // 
             // pictureBox1
             // 
@@ -89,6 +90,7 @@
             this.btnStartGame.TabIndex = 1;
             this.btnStartGame.Text = "Start New Game";
             this.btnStartGame.UseVisualStyleBackColor = false;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
             // frmMainMenu
             // 

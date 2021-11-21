@@ -33,5 +33,16 @@ namespace NameThatTune
         {
 
         }
+
+        private void btnStartGame_Click(object sender, EventArgs e)
+        {
+            frmPlayerSetup obj = new frmPlayerSetup(this);
+            obj.Show();
+        }
+
+        private void btnCloseGame_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

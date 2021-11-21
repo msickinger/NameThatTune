@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(594, 327);
             this.Name = "frmPlayerSetup";
             this.Text = "Player Setup";
+            this.Load += new System.EventHandler(this.frmPlayerSetup_Load);
             this.ResumeLayout(false);
 
         }
