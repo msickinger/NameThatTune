@@ -15,6 +15,26 @@ namespace NameThatTune
         public frm1()
         {
             InitializeComponent();
+
+            //create main menu on initialization
+            frmMainMenu obj = new frmMainMenu(this);
+            obj.Show();
+
+            //delay calling hide so frm1 doesn't
+            //reappear on startup
+            timer1.Enabled = true;
+        }
+
+        private void frm1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //hide the dummy form: frm1 and disable the timer
+            Hide();
+            timer1.Enabled=false;
         }
     }
 }

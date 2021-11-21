@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnCloseGame = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStartGame = new System.Windows.Forms.Button();
-            this.btnCloseGame = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(742, 460);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // btnCloseGame
+            // 
+            this.btnCloseGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCloseGame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCloseGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCloseGame.Location = new System.Drawing.Point(374, 381);
+            this.btnCloseGame.Name = "btnCloseGame";
+            this.btnCloseGame.Size = new System.Drawing.Size(365, 76);
+            this.btnCloseGame.TabIndex = 2;
+            this.btnCloseGame.Text = "Close Game";
+            this.btnCloseGame.UseVisualStyleBackColor = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -61,7 +73,7 @@
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(736, 373);
+            this.pictureBox1.Size = new System.Drawing.Size(736, 372);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -71,24 +83,12 @@
             this.btnStartGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnStartGame.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnStartGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnStartGame.Location = new System.Drawing.Point(3, 382);
+            this.btnStartGame.Location = new System.Drawing.Point(3, 381);
             this.btnStartGame.Name = "btnStartGame";
-            this.btnStartGame.Size = new System.Drawing.Size(365, 75);
+            this.btnStartGame.Size = new System.Drawing.Size(365, 76);
             this.btnStartGame.TabIndex = 1;
             this.btnStartGame.Text = "Start New Game";
             this.btnStartGame.UseVisualStyleBackColor = false;
-            // 
-            // btnCloseGame
-            // 
-            this.btnCloseGame.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCloseGame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnCloseGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCloseGame.Location = new System.Drawing.Point(374, 382);
-            this.btnCloseGame.Name = "btnCloseGame";
-            this.btnCloseGame.Size = new System.Drawing.Size(365, 75);
-            this.btnCloseGame.TabIndex = 2;
-            this.btnCloseGame.Text = "Close Game";
-            this.btnCloseGame.UseVisualStyleBackColor = false;
             // 
             // frmMainMenu
             // 
@@ -99,6 +99,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMainMenu";
             this.Text = "Main Menu";
+            this.Load += new System.EventHandler(this.frmMainMenu_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
