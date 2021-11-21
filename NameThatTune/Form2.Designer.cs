@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnPlayer2Ready = new System.Windows.Forms.Button();
+            this.txtPlayer2Name = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtPlayer1Name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPlayer2Name = new System.Windows.Forms.TextBox();
             this.btnPlayer1Ready = new System.Windows.Forms.Button();
-            this.btnPlayer2Ready = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,17 +64,38 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(594, 252);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // btnPlayer2Ready
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Player 1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPlayer2Ready.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPlayer2Ready.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
+            this.btnPlayer2Ready.Location = new System.Drawing.Point(300, 213);
+            this.btnPlayer2Ready.Name = "btnPlayer2Ready";
+            this.btnPlayer2Ready.Size = new System.Drawing.Size(291, 36);
+            this.btnPlayer2Ready.TabIndex = 7;
+            this.btnPlayer2Ready.Text = "Ready!";
+            this.btnPlayer2Ready.UseVisualStyleBackColor = true;
+            this.btnPlayer2Ready.Click += new System.EventHandler(this.btnPlayer2Ready_Click);
+            // 
+            // txtPlayer2Name
+            // 
+            this.txtPlayer2Name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPlayer2Name.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
+            this.txtPlayer2Name.Location = new System.Drawing.Point(300, 133);
+            this.txtPlayer2Name.Name = "txtPlayer2Name";
+            this.txtPlayer2Name.Size = new System.Drawing.Size(291, 36);
+            this.txtPlayer2Name.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(300, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(291, 47);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Character Name:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -87,6 +108,18 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Player 2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Impact", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(291, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Player 1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtPlayer1Name
             // 
@@ -109,27 +142,6 @@
             this.label3.Text = "Character Name:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(300, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(291, 47);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Character Name:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPlayer2Name
-            // 
-            this.txtPlayer2Name.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPlayer2Name.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
-            this.txtPlayer2Name.Location = new System.Drawing.Point(300, 133);
-            this.txtPlayer2Name.Name = "txtPlayer2Name";
-            this.txtPlayer2Name.Size = new System.Drawing.Size(291, 36);
-            this.txtPlayer2Name.TabIndex = 5;
-            // 
             // btnPlayer1Ready
             // 
             this.btnPlayer1Ready.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -140,17 +152,7 @@
             this.btnPlayer1Ready.TabIndex = 6;
             this.btnPlayer1Ready.Text = "Ready!";
             this.btnPlayer1Ready.UseVisualStyleBackColor = true;
-            // 
-            // btnPlayer2Ready
-            // 
-            this.btnPlayer2Ready.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPlayer2Ready.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
-            this.btnPlayer2Ready.Location = new System.Drawing.Point(300, 213);
-            this.btnPlayer2Ready.Name = "btnPlayer2Ready";
-            this.btnPlayer2Ready.Size = new System.Drawing.Size(291, 36);
-            this.btnPlayer2Ready.TabIndex = 7;
-            this.btnPlayer2Ready.Text = "Ready!";
-            this.btnPlayer2Ready.UseVisualStyleBackColor = true;
+            this.btnPlayer1Ready.Click += new System.EventHandler(this.btnPlayer1Ready_Click);
             // 
             // frmPlayerSetup
             // 
