@@ -25,10 +25,21 @@ namespace NameThatTune
 
     public partial class TriviaRound : Form
     {
+        frmPlayerSetup parent;
+        Player player1, player2;
         private ImageSelect state = ImageSelect.None;
         public TriviaRound()
         {
             InitializeComponent();
+        }
+        public TriviaRound(frmPlayerSetup parent, Player p1, Player p2)
+        {
+            InitializeComponent();
+            this.parent = parent;
+            parent.Hide();
+            player1 = new Player(p1);
+            player2 = new Player(p2);
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

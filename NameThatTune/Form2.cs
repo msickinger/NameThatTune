@@ -16,6 +16,7 @@ namespace NameThatTune
         frmMainMenu parent;
         bool P1ready = false;
         bool P2ready = false;
+        Player player1, player2;
        
         public frmPlayerSetup()
         {
@@ -38,7 +39,7 @@ namespace NameThatTune
         private void btnPlayer1Ready_Click(object sender, EventArgs e)
         {
             btnPlayer1Ready.BackColor = Color.Green;
-            Player player1 = new Player(txtPlayer1Name.Text, 0, null);
+            player1 = new Player(txtPlayer1Name.Text, 0, null);
             P1ready = true;
             checkStartFirstGame();
             
@@ -47,18 +48,19 @@ namespace NameThatTune
         private void btnPlayer2Ready_Click(object sender, EventArgs e)
         {
             btnPlayer2Ready.BackColor = Color.Green;
-            Player player2 = new Player(txtPlayer2Name.Text, 0, null);
+            player2 = new Player(txtPlayer2Name.Text, 0, null);
             P2ready = true;
             checkStartFirstGame();
         }
-        //check if both players are ready to begin the first (randomized minigame)
+        //check if both players are ready to begin the game
         public void checkStartFirstGame()
         {
             if(P1ready ==true && P2ready ==true)
             {
-                //need to randomize list of first round minigames 
-                //load the picked minigame form
-                
+
+                //load the picked minigame form; pass player data to next form
+                TriviaRound obj = new TriviaRound(this, player1, player2);
+                obj.Show();
 
             }
         }

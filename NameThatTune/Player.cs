@@ -18,6 +18,12 @@ namespace NameThatTune
             Cash = c;
             Answer = a;
         }
+        public Player(Player p)
+        {
+            Name = p.Name;
+            Cash = p.Cash;
+            Answer = p.Answer;
+        }
     }
     
 }
