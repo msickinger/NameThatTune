@@ -19,7 +19,7 @@ namespace NameThatTune
         public Question()
         {
             prompt = "a";
-            answerBank[0] = "a";
+            answerBank[0] = "a"; //getting an error here when creating question member in TriviaRound: index out of range
             answerBank[1] = "a";
             answerBank[2] = "a";
             answerBank[3] = "a";
