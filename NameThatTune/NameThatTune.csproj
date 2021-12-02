@@ -133,5 +133,8 @@
   <ItemGroup>
     <None Include="Resources\image8.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TuneBank.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

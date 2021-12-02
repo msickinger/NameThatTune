@@ -31,9 +31,9 @@ namespace NameThatTune
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnNextQuestion = new System.Windows.Forms.Button();
             this.lblTurn = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
+            this.btnNextQuestion = new System.Windows.Forms.Button();
             this.chkboxAnswers = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,18 +73,6 @@ namespace NameThatTune
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // btnNextQuestion
-            // 
-            this.btnNextQuestion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnNextQuestion.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
-            this.btnNextQuestion.Location = new System.Drawing.Point(3, 502);
-            this.btnNextQuestion.Name = "btnNextQuestion";
-            this.btnNextQuestion.Size = new System.Drawing.Size(757, 36);
-            this.btnNextQuestion.TabIndex = 2;
-            this.btnNextQuestion.Text = "Next Question";
-            this.btnNextQuestion.UseVisualStyleBackColor = true;
-            this.btnNextQuestion.Click += new System.EventHandler(this.btnNextQuestion_Click);
-            // 
             // lblTurn
             // 
             this.lblTurn.AutoSize = true;
@@ -110,9 +98,23 @@ namespace NameThatTune
             this.lblQuestion.Text = "{Question 1:}";
             this.lblQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnNextQuestion
+            // 
+            this.btnNextQuestion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnNextQuestion.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
+            this.btnNextQuestion.Location = new System.Drawing.Point(3, 502);
+            this.btnNextQuestion.Name = "btnNextQuestion";
+            this.btnNextQuestion.Size = new System.Drawing.Size(757, 36);
+            this.btnNextQuestion.TabIndex = 2;
+            this.btnNextQuestion.Text = "Next Question";
+            this.btnNextQuestion.UseVisualStyleBackColor = true;
+            this.btnNextQuestion.Click += new System.EventHandler(this.btnNextQuestion_Click);
+            // 
             // chkboxAnswers
             // 
+            this.chkboxAnswers.AccessibleRole = System.Windows.Forms.AccessibleRole.Cell;
             this.chkboxAnswers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.chkboxAnswers.CheckOnClick = true;
             this.chkboxAnswers.Font = new System.Drawing.Font("Palatino Linotype", 11.75F);
             this.chkboxAnswers.FormattingEnabled = true;
             this.chkboxAnswers.Items.AddRange(new object[] {
@@ -120,9 +122,9 @@ namespace NameThatTune
             "Answer2",
             "Answer3",
             "Answer4"});
-            this.chkboxAnswers.Location = new System.Drawing.Point(321, 381);
+            this.chkboxAnswers.Location = new System.Drawing.Point(220, 381);
             this.chkboxAnswers.Name = "chkboxAnswers";
-            this.chkboxAnswers.Size = new System.Drawing.Size(120, 100);
+            this.chkboxAnswers.Size = new System.Drawing.Size(322, 100);
             this.chkboxAnswers.TabIndex = 5;
             // 
             // TriviaRound
