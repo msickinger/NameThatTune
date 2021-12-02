@@ -107,12 +107,15 @@ namespace NameThatTune
         {
             //load with title and rules; will change to player turn and question when they continue
             lblTurn.Text = "Name That Tune: Trivia Round!";
-            lblQuestion.Text = "Rules: Each Player will get the chance to answer five questions. Each question is worth $1000" + 
-                ", and if either opponent gets them all right, they will recievea a $50";
+            lblQuestion.Text = "Game Rules: Each Player will get the chance to answer five questions. Each question is worth $1000" + 
+                ", and if either opponent gets them all right, they will recieve a bonus of $5,000.";
             btnNextQuestion.Text = "OK";
             R1_Questions();
 
         }
+
+        // Answer choice buttons flip a global flag that can be used for event generation
+        //
         private void Btn_Choice1_Click(object sender, EventArgs e)
         {
             flagBox1 = true;
@@ -130,6 +133,8 @@ namespace NameThatTune
             flagBox4 = true;
         }
 
+        // THe NextQuestion button is the driver of the program, as it advances so does
+        //the program
         private void btnNextQuestion_Click(object sender, EventArgs e)
         {
             btnNextQuestion.Text = "Next Question.";
@@ -262,9 +267,11 @@ namespace NameThatTune
             }
             else if (state == ImageSelect.Image6)
             {
+                //Image setup
                 pictureBox1.Image = Properties.Resources.image_7;
                 state = ImageSelect.Image7;
 
+                // Question setup
                 string answer = Q_Bank_1[1].answer;
                 lblTurn.Text = $"{player2.Name}'s Turn";
                 lblQuestion.Text = Q_Bank_1[1].prompt;
@@ -273,6 +280,7 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[1].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[1].answerBank[3];
 
+                // Answer Check
                 if (flagBox3 == true)
                 {
                     player2.Cash += 1000;
@@ -300,9 +308,11 @@ namespace NameThatTune
             }
             else if (state == ImageSelect.Image8)
             {
+                // Image setup
                 pictureBox1.Image = Properties.Resources.image_9;
                 state = ImageSelect.Image9;
 
+                // Question setup
                 string answer = Q_Bank_1[3].answer;
                 lblTurn.Text = $"{player2.Name}'s Turn";
                 lblQuestion.Text = Q_Bank_1[3].prompt;
@@ -319,6 +329,7 @@ namespace NameThatTune
             }
             else if (state == ImageSelect.Image9)
             {
+                // Image setup
                 pictureBox1.Image = Properties.Resources.image_10;
                 state = ImageSelect.Image10;
 
@@ -335,15 +346,16 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox3 = false;
                 }
+                TallyGame(player1, player2);
             }
             else
             {
-                // Tally Game Function
-                TallyGame(player1, player2);
                 //Play again?
                 Btn_Choice1.Text = "Play Again?";
-                Btn_Choice2.Text = "Quit Game";
-                btnNextQuestion.Text = "Submit";
+                Btn_Choice2.Text = "Leaderboard";
+                Btn_Choice3.Text = null;
+                Btn_Choice4.Text = "Quit Game";
+                btnNextQuestion.Text = "Double Click to Confirm Selection";
 
                 if (flagBox1 == true)
                 {
@@ -351,22 +363,42 @@ namespace NameThatTune
                     state = ImageSelect.None;
                     flagBox1 = false; 
                 }
-                else
+                else if(flagBox2 == true)
+                {
+                    DisplayScores(player1, player2);
+                    flagBox2 = false;
+                }    
+                else if(flagBox4 == true)
                 {
                     // Quit Game - close all forms
+                    this.Close();
+                    parent.Close();
+                    Environment.Exit(1);
+                    flagBox4 = false;
                 }
             }
 
             void TallyGame(Player p1, Player p2)
             {
-                if (p1.Cash == 5000)
-                    p1.Cash = 10000;
-                if (p2.Cash == 5000)
-                    p2.Cash = 10000;
-
+                if (p1.Cash % 5000 == 0)
+                    p1.Cash += 5000;
+                if (p2.Cash % 5000 == 0)
+                    p2.Cash = 5000;
                 // Open new commentbox that breaks down the scores and winner
-                // 
+                //
+                DisplayScores(p1, p2);
+            }
+            void DisplayScores(Player p1, Player p2)
+            {
+                // Initializes the variables to pass to the MessageBox.Show method.
+                string caption = "Current Standings:";
+                string message = $"{p1.Name}'s wallet: ${p1.Cash} \n " +
+                    $"{p2.Name}'s wallet: ${p1.Cash}";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
 
+                // Displays the MessageBox.
+                result = MessageBox.Show(message, caption, buttons);
             }
         }
     }

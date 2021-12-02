@@ -85,7 +85,7 @@ namespace NameThatTune
             // 
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQuestion.Font = new System.Drawing.Font("Palatino Linotype", 15.75F);
+            this.lblQuestion.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion.Location = new System.Drawing.Point(3, 69);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(757, 75);
