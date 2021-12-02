@@ -133,6 +133,11 @@ namespace NameThatTune
             flagBox4 = true;
         }
 
+        private void Btn_Choice1_BackColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
         // THe NextQuestion button is the driver of the program, as it advances so does
         //the program
         private void btnNextQuestion_Click(object sender, EventArgs e)
@@ -346,10 +351,12 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox3 = false;
                 }
-                TallyGame(player1, player2);
+                TallyGame(player1);
+                TallyGame(player2);
             }
             else
             {
+                DisplayScores(player1, player2);
                 //Play again?
                 Btn_Choice1.Text = "Play Again?";
                 Btn_Choice2.Text = "Leaderboard";
@@ -378,15 +385,12 @@ namespace NameThatTune
                 }
             }
 
-            void TallyGame(Player p1, Player p2)
+            void TallyGame(Player p)
             {
-                if (p1.Cash % 5000 == 0)
-                    p1.Cash += 5000;
-                if (p2.Cash % 5000 == 0)
-                    p2.Cash = 5000;
-                // Open new commentbox that breaks down the scores and winner
-                //
-                DisplayScores(p1, p2);
+                if (p.Cash == 5000)
+                    p.Cash += 5000;
+                else if (p.Cash % 5000 == 0)
+                    p.Cash += 5000;
             }
             void DisplayScores(Player p1, Player p2)
             {
