@@ -139,9 +139,6 @@ namespace NameThatTune
             Btn_Choice3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             Btn_Choice4.BackColor = System.Drawing.SystemColors.InactiveCaption;
         }
-
-
-
         // THe NextQuestion button is the driver of the program, as it advances so does
         //the program
         private void btnNextQuestion_Click(object sender, EventArgs e)
@@ -163,16 +160,11 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
 
-                Btn_Choice4_Click(sender, e);
-
                 if (flagBox4 == true)
                 {
                     player1.Cash += 1000;
-                    DisplayScores(player1, player2);
                     flagBox4 = false;
                 }
-
-                resetBackColors();
             }
             else if (state == ImageSelect.Image1)
             {
@@ -303,6 +295,7 @@ namespace NameThatTune
                 if (flagBox3 == true)
                 {
                     player2.Cash += 1000;
+
                     flagBox3 = false;
                 }
                 resetBackColors();
@@ -418,6 +411,19 @@ namespace NameThatTune
                 string caption = "Current Standings:";
                 string message = $"{p1.Name}'s wallet: ${p1.Cash} \n " +
                     $"{p2.Name}'s wallet: ${p1.Cash}";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(message, caption, buttons);
+            }
+            //---------------------------Troubleshooting Tool --------------------//
+
+            void T_Shoot(string text)
+            {
+                // Initializes the variables to pass to the MessageBox.Show method.
+                string caption = "Troubleshooting";
+                string message = text;
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result;
 
