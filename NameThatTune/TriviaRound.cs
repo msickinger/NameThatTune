@@ -24,6 +24,7 @@ namespace NameThatTune
         Image9, 
         Image10,
         Image11,
+        Over,
         None
     }
 
@@ -393,6 +394,8 @@ namespace NameThatTune
                 TallyGame(player1);
                 TallyGame(player2);
                 DisplayScores(player1, player2);
+                resetBackColors();
+                state = ImageSelect.Over;
             }
             else
             {
