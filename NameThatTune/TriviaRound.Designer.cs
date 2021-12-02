@@ -136,7 +136,6 @@ namespace NameThatTune
             this.Btn_Choice1.Size = new System.Drawing.Size(751, 21);
             this.Btn_Choice1.TabIndex = 0;
             this.Btn_Choice1.UseVisualStyleBackColor = false;
-            this.Btn_Choice1.BackColorChanged += new System.EventHandler(this.Btn_Choice1_BackColorChanged);
             this.Btn_Choice1.Click += new System.EventHandler(this.Btn_Choice1_Click);
             // 
             // Btn_Choice2

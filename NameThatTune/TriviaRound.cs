@@ -31,11 +31,8 @@ namespace NameThatTune
         frmPlayerSetup parent;
         Player player1, player2;
         Question[] Q_Bank_1 = new Question[5];
-        bool flagBox1 = false;
-        bool flagBox2 = false;
-        bool flagBox3 = false; 
-        bool flagBox4 = false;
-        
+        bool flagBox1, flagBox2, flagBox3, flagBox4;
+
         public void R1_Questions()
         {
             Q_Bank_1[0] = new Question();
@@ -97,17 +94,11 @@ namespace NameThatTune
         {
 
         }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //Question.Q_Bank;
-        }
-
         private void TriviaRound_Load(object sender, EventArgs e)
         {
             //load with title and rules; will change to player turn and question when they continue
             lblTurn.Text = "Name That Tune: Trivia Round!";
-            lblQuestion.Text = "Game Rules: Each Player will get the chance to answer five questions. Each question is worth $1000" + 
+            lblQuestion.Text = "Game Rules: Each Player will get the chance to answer five questions. Each question is worth $1000" +
                 ", and if either opponent gets them all right, they will recieve a bonus of $5,000.";
             btnNextQuestion.Text = "OK";
             R1_Questions();
@@ -116,27 +107,40 @@ namespace NameThatTune
 
         // Answer choice buttons flip a global flag that can be used for event generation
         //
-        private void Btn_Choice1_Click(object sender, EventArgs e)
+        public void Btn_Choice1_Click(object sender, EventArgs e)
         {
+            resetBackColors();
             flagBox1 = true;
+            Btn_Choice1.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
-        private void Btn_Choice2_Click(object sender, EventArgs e)
+        public void Btn_Choice2_Click(object sender, EventArgs e)
         {
+            resetBackColors();
             flagBox2 = true;
+            Btn_Choice2.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
-        private void Btn_Choice3_Click(object sender, EventArgs e)
+        public void Btn_Choice3_Click(object sender, EventArgs e)
         {
+            resetBackColors();
             flagBox3 = true;
+            Btn_Choice3.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
-        private void Btn_Choice4_Click(object sender, EventArgs e)
+        public void Btn_Choice4_Click(object sender, EventArgs e)
         {
+            resetBackColors();
             flagBox4 = true;
+            Btn_Choice4.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
-        private void Btn_Choice1_BackColorChanged(object sender, EventArgs e)
+        public void resetBackColors()
         {
-
+            Btn_Choice1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            Btn_Choice2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            Btn_Choice3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            Btn_Choice4.BackColor = System.Drawing.SystemColors.InactiveCaption;
         }
+
+
 
         // THe NextQuestion button is the driver of the program, as it advances so does
         //the program
@@ -159,11 +163,16 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
 
+                Btn_Choice4_Click(sender, e);
+
                 if (flagBox4 == true)
                 {
                     player1.Cash += 1000;
+                    DisplayScores(player1, player2);
                     flagBox4 = false;
                 }
+
+                resetBackColors();
             }
             else if (state == ImageSelect.Image1)
             {
@@ -185,6 +194,7 @@ namespace NameThatTune
                     player1.Cash += 1000;
                     flagBox3 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image2)
             {
@@ -206,6 +216,7 @@ namespace NameThatTune
                     player1.Cash += 1000;
                     flagBox1 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image3)
             {
@@ -227,6 +238,7 @@ namespace NameThatTune
                     player1.Cash += 1000;
                     flagBox2 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image4)
             {
@@ -248,6 +260,7 @@ namespace NameThatTune
                     player1.Cash += 1000;
                     flagBox3 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image5)
             {
@@ -269,6 +282,7 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox4 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image6)
             {
@@ -291,6 +305,7 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox3 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image7)
             {
@@ -310,6 +325,7 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox1 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image8)
             {
@@ -331,6 +347,7 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox2 = false;
                 }
+                resetBackColors();
             }
             else if (state == ImageSelect.Image9)
             {
@@ -351,12 +368,15 @@ namespace NameThatTune
                     player2.Cash += 1000;
                     flagBox3 = false;
                 }
+                resetBackColors();
+
                 TallyGame(player1);
                 TallyGame(player2);
+
+                
             }
             else
             {
-                DisplayScores(player1, player2);
                 //Play again?
                 Btn_Choice1.Text = "Play Again?";
                 Btn_Choice2.Text = "Leaderboard";
@@ -383,13 +403,13 @@ namespace NameThatTune
                     Environment.Exit(1);
                     flagBox4 = false;
                 }
+
+                resetBackColors();
             }
 
             void TallyGame(Player p)
             {
                 if (p.Cash == 5000)
-                    p.Cash += 5000;
-                else if (p.Cash % 5000 == 0)
                     p.Cash += 5000;
             }
             void DisplayScores(Player p1, Player p2)
