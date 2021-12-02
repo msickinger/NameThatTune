@@ -136,5 +136,20 @@
   <ItemGroup>
     <None Include="Resources\TuneBank.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image41.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image51.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

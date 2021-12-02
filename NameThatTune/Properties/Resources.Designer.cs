@@ -73,6 +73,16 @@ namespace NameThatTune.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_10 {
+            get {
+                object obj = ResourceManager.GetObject("image_10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_2 {
             get {
                 object obj = ResourceManager.GetObject("image_2", resourceCulture);
@@ -136,6 +146,16 @@ namespace NameThatTune.Properties {
         internal static System.Drawing.Bitmap image_8 {
             get {
                 object obj = ResourceManager.GetObject("image_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_9 {
+            get {
+                object obj = ResourceManager.GetObject("image_9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

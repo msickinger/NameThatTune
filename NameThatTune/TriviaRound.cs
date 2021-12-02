@@ -21,6 +21,8 @@ namespace NameThatTune
         Image6,
         Image7,
         Image8,
+        Image9, 
+        Image10,
         None
     }
 
@@ -29,6 +31,10 @@ namespace NameThatTune
         frmPlayerSetup parent;
         Player player1, player2;
         Question[] Q_Bank_1 = new Question[5];
+        bool flagBox1 = false;
+        bool flagBox2 = false;
+        bool flagBox3 = false; 
+        bool flagBox4 = false;
         
         public void R1_Questions()
         {
@@ -87,13 +93,6 @@ namespace NameThatTune
             player2 = new Player(p2);     // string prompt = questionBank.Q_Bank[0].prompt;
 
         }
-
-        public void GetQuestions()
-        {
-            
-            
-        }
-
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -107,80 +106,267 @@ namespace NameThatTune
         private void TriviaRound_Load(object sender, EventArgs e)
         {
             //load with title and rules; will change to player turn and question when they continue
-            lblTurn.Text = "Name That Tune: Trivia Game Round";
-            lblQuestion.Text = "Rules: For each question, answer with the correct song title. Each question is $1000 more than the next and starting at $1000 ";
-            //hide answer checkbox until question 1
-            chkboxAnswers.Visible = false;
+            lblTurn.Text = "Name That Tune: Trivia Round!";
+            lblQuestion.Text = "Rules: Each Player will get the chance to answer five questions. Each question is worth $1000" + 
+                ", and if either opponent gets them all right, they will recievea a $50";
+            btnNextQuestion.Text = "OK";
             R1_Questions();
 
+        }
+        private void Btn_Choice1_Click(object sender, EventArgs e)
+        {
+            flagBox1 = true;
+        }
+        private void Btn_Choice2_Click(object sender, EventArgs e)
+        {
+            flagBox2 = true;
+        }
+        private void Btn_Choice3_Click(object sender, EventArgs e)
+        {
+            flagBox3 = true;
+        }
+        private void Btn_Choice4_Click(object sender, EventArgs e)
+        {
+            flagBox4 = true;
         }
 
         private void btnNextQuestion_Click(object sender, EventArgs e)
         {
-            chkboxAnswers.Visible = true;
+            btnNextQuestion.Text = "Next Question.";
+
             if (state == ImageSelect.None)
             {
+                // Image Setup
                 pictureBox1.Image = Properties.Resources.image_1;
                 state = ImageSelect.Image1;
+
+                // Question Setup
+                string answer = Q_Bank_1[0].answer;
                 lblTurn.Text = $"{player1.Name}'s Turn";
-                lblQuestion.Text = this.Q_Bank_1[0].prompt;
+                lblQuestion.Text = Q_Bank_1[0].prompt;
+                Btn_Choice1.Text = Q_Bank_1[0].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[0].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
+
+                if (flagBox4 == true)
+                {
+                    player1.Cash += 1000;
+                    flagBox4 = false;
+                }
             }
             else if (state == ImageSelect.Image1)
             {
                 pictureBox1.Image = Properties.Resources.image_2;
                 state = ImageSelect.Image2;
 
-                lblTurn.Text = player2.Name + "'s Turn";
-                //lblQuestion.Text = "Question 2: " + q2.prompt
-                //answers
+                lblTurn.Text = $"{player1.Name}'s Turn";
+
+                string answer = Q_Bank_1[1].answer;
+                lblTurn.Text = $"{player1.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[1].prompt;
+                Btn_Choice1.Text = Q_Bank_1[1].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[1].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[1].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[1].answerBank[3];
+
+                if (flagBox3 == true)
+                {
+                    player1.Cash += 1000;
+                    flagBox3 = false;
+                }
             }
             else if (state == ImageSelect.Image2)
             {
                 pictureBox1.Image = Properties.Resources.image_3;
                 state = ImageSelect.Image3;
 
-                lblTurn.Text = player1.Name + "'s Turn";
-                //lblQuestion.Text = "Question 3: " + q3.prompt
+                lblTurn.Text = $"{player1.Name}'s Turn";
+
+                string answer = Q_Bank_1[2].answer;
+                lblTurn.Text = $"{player1.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[2].prompt;
+                Btn_Choice1.Text = Q_Bank_1[2].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[2].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[2].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[2].answerBank[3];
+
+                if (flagBox1 == true)
+                {
+                    player1.Cash += 1000;
+                    flagBox1 = false;
+                }
             }
             else if (state == ImageSelect.Image3)
             {
                 pictureBox1.Image = Properties.Resources.image_4;
                 state = ImageSelect.Image4;
 
-                lblTurn.Text = player2.Name + "'s Turn";
-                //lblQuestion.Text = "Question 4: " + q4.prompt
+                lblTurn.Text = $"{player1.Name}'s Turn";
+
+                string answer = Q_Bank_1[3].answer;
+                lblTurn.Text = $"{player1.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[3].prompt;
+                Btn_Choice1.Text = Q_Bank_1[3].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[3].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[3].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[3].answerBank[3];
+
+                if (flagBox2 == true)
+                {
+                    player1.Cash += 1000;
+                    flagBox2 = false;
+                }
             }
             else if (state == ImageSelect.Image4)
             {
                 pictureBox1.Image = Properties.Resources.image_5;
                 state = ImageSelect.Image5;
 
-                lblTurn.Text = player1.Name + "'s Turn";
-                //lblQuestion.Text = "Question 5: " + q5.prompt
+                lblTurn.Text = $"{player1.Name}'s Turn";
+
+                string answer = Q_Bank_1[4].answer;
+                lblTurn.Text = $"{player1.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[4].prompt;
+                Btn_Choice1.Text = Q_Bank_1[4].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[4].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[4].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[4].answerBank[3];
+
+                if (flagBox3 == true)
+                {
+                    player1.Cash += 1000;
+                    flagBox3 = false;
+                }
             }
             else if (state == ImageSelect.Image5)
             {
+                // Image Setup
                 pictureBox1.Image = Properties.Resources.image_6;
                 state = ImageSelect.Image6;
 
-                lblTurn.Text = player2.Name + "'s Turn";
-                //lblQuestion.Text = "Question 6: " + q6.prompt
+                // Question Setup
+                string answer = Q_Bank_1[0].answer;
+                lblTurn.Text = $"{player2.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[0].prompt;
+                Btn_Choice1.Text = Q_Bank_1[0].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[0].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
+                // Answer Check
+                if (flagBox4 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox4 = false;
+                }
             }
             else if (state == ImageSelect.Image6)
             {
                 pictureBox1.Image = Properties.Resources.image_7;
                 state = ImageSelect.Image7;
 
-                lblTurn.Text = player1.Name + "'s Turn";
-                //lblQuestion.Text = "Question 7: " + q7.prompt
+                string answer = Q_Bank_1[1].answer;
+                lblTurn.Text = $"{player2.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[1].prompt;
+                Btn_Choice1.Text = Q_Bank_1[1].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[1].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[1].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[1].answerBank[3];
+
+                if (flagBox3 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox3 = false;
+                }
             }
             else if (state == ImageSelect.Image7)
             {
                 pictureBox1.Image = Properties.Resources.image_8;
                 state = ImageSelect.Image8;
 
-                lblTurn.Text = player2.Name + "'s Turn";
-                //lblQuestion.Text = "Question 8: " + q8.prompt
+                string answer = Q_Bank_1[2].answer;
+                lblTurn.Text = $"{player2.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[2].prompt;
+                Btn_Choice1.Text = Q_Bank_1[2].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[2].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[2].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[2].answerBank[3];
+
+                if (flagBox1 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox1 = false;
+                }
+            }
+            else if (state == ImageSelect.Image8)
+            {
+                pictureBox1.Image = Properties.Resources.image_9;
+                state = ImageSelect.Image9;
+
+                string answer = Q_Bank_1[3].answer;
+                lblTurn.Text = $"{player2.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[3].prompt;
+                Btn_Choice1.Text = Q_Bank_1[3].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[3].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[3].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[3].answerBank[3];
+
+                if (flagBox2 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox2 = false;
+                }
+            }
+            else if (state == ImageSelect.Image9)
+            {
+                pictureBox1.Image = Properties.Resources.image_10;
+                state = ImageSelect.Image10;
+
+                string answer = Q_Bank_1[4].answer;
+                lblTurn.Text = $"{player2.Name}'s Turn";
+                lblQuestion.Text = Q_Bank_1[4].prompt;
+                Btn_Choice1.Text = Q_Bank_1[4].answerBank[0];
+                Btn_Choice2.Text = Q_Bank_1[4].answerBank[1];
+                Btn_Choice3.Text = Q_Bank_1[4].answerBank[2];
+                Btn_Choice4.Text = Q_Bank_1[4].answerBank[3];
+
+                if (flagBox3 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox3 = false;
+                }
+            }
+            else
+            {
+                // Tally Game Function
+                TallyGame(player1, player2);
+                //Play again?
+                Btn_Choice1.Text = "Play Again?";
+                Btn_Choice2.Text = "Quit Game";
+                btnNextQuestion.Text = "Submit";
+
+                if (flagBox1 == true)
+                {
+                    // Play again selected, resetting ImageSelect state should recycle game
+                    state = ImageSelect.None;
+                    flagBox1 = false; 
+                }
+                else
+                {
+                    // Quit Game - close all forms
+                }
+            }
+
+            void TallyGame(Player p1, Player p2)
+            {
+                if (p1.Cash == 5000)
+                    p1.Cash = 10000;
+                if (p2.Cash == 5000)
+                    p2.Cash = 10000;
+
+                // Open new commentbox that breaks down the scores and winner
+                // 
+
             }
         }
     }
