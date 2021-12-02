@@ -23,6 +23,7 @@ namespace NameThatTune
         Image8,
         Image9, 
         Image10,
+        Image11,
         None
     }
 
@@ -160,14 +161,15 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
 
+
+            }
+            else if (state == ImageSelect.Image1)
+            {
                 if (flagBox4 == true)
                 {
                     player1.Cash += 1000;
                     flagBox4 = false;
                 }
-            }
-            else if (state == ImageSelect.Image1)
-            {
                 pictureBox1.Image = Properties.Resources.image_2;
                 state = ImageSelect.Image2;
 
@@ -181,15 +183,16 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[1].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[1].answerBank[3];
 
+
+                resetBackColors();
+            }
+            else if (state == ImageSelect.Image2)
+            {
                 if (flagBox3 == true)
                 {
                     player1.Cash += 1000;
                     flagBox3 = false;
                 }
-                resetBackColors();
-            }
-            else if (state == ImageSelect.Image2)
-            {
                 pictureBox1.Image = Properties.Resources.image_3;
                 state = ImageSelect.Image3;
 
@@ -203,15 +206,16 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[2].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[2].answerBank[3];
 
+
+                resetBackColors();
+            }
+            else if (state == ImageSelect.Image3)
+            {
                 if (flagBox1 == true)
                 {
                     player1.Cash += 1000;
                     flagBox1 = false;
                 }
-                resetBackColors();
-            }
-            else if (state == ImageSelect.Image3)
-            {
                 pictureBox1.Image = Properties.Resources.image_4;
                 state = ImageSelect.Image4;
 
@@ -225,15 +229,16 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[3].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[3].answerBank[3];
 
+
+                resetBackColors();
+            }
+            else if (state == ImageSelect.Image4)
+            {
                 if (flagBox2 == true)
                 {
                     player1.Cash += 1000;
                     flagBox2 = false;
                 }
-                resetBackColors();
-            }
-            else if (state == ImageSelect.Image4)
-            {
                 pictureBox1.Image = Properties.Resources.image_5;
                 state = ImageSelect.Image5;
 
@@ -247,15 +252,16 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[4].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[4].answerBank[3];
 
+
+                resetBackColors();
+            }
+            else if (state == ImageSelect.Image5)
+            {
                 if (flagBox3 == true)
                 {
                     player1.Cash += 1000;
                     flagBox3 = false;
                 }
-                resetBackColors();
-            }
-            else if (state == ImageSelect.Image5)
-            {
                 // Image Setup
                 pictureBox1.Image = Properties.Resources.image_6;
                 state = ImageSelect.Image6;
@@ -268,16 +274,13 @@ namespace NameThatTune
                 Btn_Choice2.Text = Q_Bank_1[0].answerBank[1];
                 Btn_Choice3.Text = Q_Bank_1[0].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[0].answerBank[3];
-                // Answer Check
-                if (flagBox4 == true)
-                {
-                    player2.Cash += 1000;
-                    flagBox4 = false;
-                }
+
                 resetBackColors();
             }
             else if (state == ImageSelect.Image6)
             {
+                // Answer Check
+
                 //Image setup
                 pictureBox1.Image = Properties.Resources.image_7;
                 state = ImageSelect.Image7;
@@ -292,16 +295,17 @@ namespace NameThatTune
                 Btn_Choice4.Text = Q_Bank_1[1].answerBank[3];
 
                 // Answer Check
-                if (flagBox3 == true)
-                {
-                    player2.Cash += 1000;
 
-                    flagBox3 = false;
-                }
                 resetBackColors();
             }
             else if (state == ImageSelect.Image7)
             {
+                if (flagBox4 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox4 = false;
+                }
+
                 pictureBox1.Image = Properties.Resources.image_8;
                 state = ImageSelect.Image8;
 
@@ -313,15 +317,18 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[2].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[2].answerBank[3];
 
-                if (flagBox1 == true)
-                {
-                    player2.Cash += 1000;
-                    flagBox1 = false;
-                }
+
                 resetBackColors();
             }
             else if (state == ImageSelect.Image8)
             {
+                if (flagBox3 == true)
+                {
+                    player2.Cash += 1000;
+
+                    flagBox3 = false;
+                }
+
                 // Image setup
                 pictureBox1.Image = Properties.Resources.image_9;
                 state = ImageSelect.Image9;
@@ -335,15 +342,17 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[3].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[3].answerBank[3];
 
-                if (flagBox2 == true)
-                {
-                    player2.Cash += 1000;
-                    flagBox2 = false;
-                }
+
                 resetBackColors();
             }
             else if (state == ImageSelect.Image9)
             {
+                if (flagBox1 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox1 = false;
+                }
+
                 // Image setup
                 pictureBox1.Image = Properties.Resources.image_10;
                 state = ImageSelect.Image10;
@@ -356,17 +365,34 @@ namespace NameThatTune
                 Btn_Choice3.Text = Q_Bank_1[4].answerBank[2];
                 Btn_Choice4.Text = Q_Bank_1[4].answerBank[3];
 
+
+
+
+            }
+
+            else if (state == ImageSelect.Image10)
+            {
+                if (flagBox2 == true)
+                {
+                    player2.Cash += 1000;
+                    flagBox2 = false;
+                }
+                resetBackColors();
+                pictureBox1.Image = Properties.Resources.GameOver;
+                state = ImageSelect.Image11;
+
+            }
+            else if (state == ImageSelect.Image11)
+            {
                 if (flagBox3 == true)
                 {
                     player2.Cash += 1000;
                     flagBox3 = false;
-                }
-                resetBackColors();
 
+                }
                 TallyGame(player1);
                 TallyGame(player2);
-
-                
+                DisplayScores(player1, player2);
             }
             else
             {
@@ -381,14 +407,14 @@ namespace NameThatTune
                 {
                     // Play again selected, resetting ImageSelect state should recycle game
                     state = ImageSelect.None;
-                    flagBox1 = false; 
+                    flagBox1 = false;
                 }
-                else if(flagBox2 == true)
+                else if (flagBox2 == true)
                 {
                     DisplayScores(player1, player2);
                     flagBox2 = false;
-                }    
-                else if(flagBox4 == true)
+                }
+                else if (flagBox4 == true)
                 {
                     // Quit Game - close all forms
                     this.Close();
@@ -410,7 +436,7 @@ namespace NameThatTune
                 // Initializes the variables to pass to the MessageBox.Show method.
                 string caption = "Current Standings:";
                 string message = $"{p1.Name}'s wallet: ${p1.Cash} \n " +
-                    $"{p2.Name}'s wallet: ${p1.Cash}";
+                    $"{p2.Name}'s wallet: ${p2.Cash}";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result;
 
